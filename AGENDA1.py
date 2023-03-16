@@ -1,9 +1,14 @@
-# rozendoxxxxxxxxxxxxxxxxxx
+# Rozendoxxxxxxxxxxxxxxxxxxxx
+
 
 import sqlite3
 
 conn = sqlite3.connect('AGENDA.db')
 
+# -----------------------------------------------------------------
+# CRIANDO AS TABELAS SQL
+
+# $TABELA SEGUNDA FEIRA
 conn.execute('''CREATE TABLE SEGUNDA
             (id INTEGER PRIMARY KEY AUTOINCREMENT,
             HORARIO1 INT NOT NULL,
@@ -11,6 +16,7 @@ conn.execute('''CREATE TABLE SEGUNDA
             HORARIO2 INT NOT NULL,
             MATERIA2 INT NOT NULL);''')
 
+# $TABELA TERCA FEIRA
 conn.execute(''' CREATE TABLE TERCA
             ( id INTEGER PRIMARY KEY AUTOINCREMENT,
             HORARIO1 INT NOT NULL,
@@ -18,6 +24,7 @@ conn.execute(''' CREATE TABLE TERCA
             HORARIO2 INT NOT NULL,
             MATERIA2 INT NOT NULL);''')
 
+# $TABELA QUARTA FEIRA
 conn.execute(''' CREATE TABLE QUARTA
             (id INTEGER PRIMARY KEY AUTOINCREMENT,
             HORARIO1 INTEGER NOT NULL,
@@ -25,6 +32,7 @@ conn.execute(''' CREATE TABLE QUARTA
             HORARIO2 INTEGER NOT NULL,
             MATERIA2 TEXT NOT NULL);''')
 
+# $TABELA QUINTA FEIRA
 conn.execute(''' CREATE TABLE QUINTA
             (id INTEGER PRIMARY KEY AUTOINCREMENT,
             HORARIO1 INTEGER NOT NULL,
@@ -32,6 +40,7 @@ conn.execute(''' CREATE TABLE QUINTA
             HORARIO2 INTEGER NOT NULL,
             MATERIA2 TEXT NOT NULL); ''')
 
+# $TABELA SEXTA FEIRA
 conn.execute(''' CREATE TABLE SEXTA
             (id INTEGER PRIMARY KEY AUTOINCREMENT,
             HORARIO1 INTEGER NOT NULL,
@@ -39,6 +48,7 @@ conn.execute(''' CREATE TABLE SEXTA
             HORARIO2 INTEGER NOT NULL,
             MATERIA2 TEXT NOT NULL);''')
 
+# $TABELA SABADO
 conn.execute(''' CREATE TABLE SABADO
             (id INTEGER PRIMARY KEY AUTOINCREMENT,
             HORARIO INTEGER NOT NULL,
@@ -52,221 +62,236 @@ conn.execute(''' CREATE TABLE SABADO
 
 
 def updateSEG():
-    conn = sqlite3.connect('AGENDA.db')
-    cursor = conn.cursor()
+    connseg = sqlite3.connect('AGENDA.db')
+    cursor = connseg.cursor()
 
     # Solicita o novo valor para a coluna "MATERIA1"
-    nv_M1 = input("Digite o novo valor para MATERIA1: ")
-    nv_H1 = input("Digite o novo valor para HORARIO1")
-    nv_M2 = input("Digite o novo valor para MATERIA2: ")
-    nv_H2 = input("Digite o novo valor para HORARIO2")
+    nv_m1 = input("Digite o novo valor para MATERIA1: ")
+    # Solicita o novo valor para a coluna "HORARIO1"
+    nv_h1 = input("Digite o novo valor para HORARIO1")
+    # Solicita o novo valor para a coluna "MATERIA2"
+    nv_m2 = input("Digite o novo valor para MATERIA2: ")
+    # Solicita o novo valor para a coluna "HORARIO2"
+    nv_h2 = input("Digite o novo valor para HORARIO2")
 
-    # Atualiza a coluna "MATERIA1" de todos os registros da tabela "SEGUNDA"
-    cursor.execute("UPDATE SEGUNDA SET MATERIA1 = ? ", (nv_M1,))
-    cursor.execute("UPDATE SEGUNDA SET MATERIA1 = ? ", (nv_H1,))
-    cursor.execute("UPDATE SEGUNDA SET MATERIA1 = ? ", (nv_M2,))
-    cursor.execute("UPDATE SEGUNDA SET MATERIA1 = ? ", (nv_H2,))
+    # Atualiza as colunas de todos os registros da tabela "SEGUNDA"
+    cursor.execute("UPDATE SEGUNDA SET MATERIA1 = ? ", (nv_m1,))
+    cursor.execute("UPDATE SEGUNDA SET MATERIA1 = ? ", (nv_h1,))
+    cursor.execute("UPDATE SEGUNDA SET MATERIA1 = ? ", (nv_m2,))
+    cursor.execute("UPDATE SEGUNDA SET MATERIA1 = ? ", (nv_h2,))
 
     # Salva as alterações
-    conn.commit()
+    connseg.commit()
 
     # Fecha a conexão com o banco de dados
-    conn.close()
+    connseg.close()
 
 
 def updateTER():
-    conn = sqlite3.connect('AGENDA.db')
-    cursor = conn.cursor()
+    connter = sqlite3.connect('AGENDA.db')
+    cursor = connter.cursor()
 
     # Solicita o novo valor para a coluna "MATERIA1"
-    nv_M1 = input("Digite o novo valor para MATERIA1: ")
-    nv_H1 = input("Digite o novo valor para HORARIO1")
-    nv_M2 = input("Digite o novo valor para MATERIA2: ")
-    nv_H2 = input("Digite o novo valor para HORARIO2")
+    nv_m1 = input("Digite o novo valor para MATERIA1: ")
+    # Solicita o novo valor para a coluna "HORARIO1"
+    nv_h1 = input("Digite o novo valor para HORARIO1")
+    # Solicita o novo valor para a coluna "MATERIA2"
+    nv_m2 = input("Digite o novo valor para MATERIA2: ")
+    # Solicita o novo valor para a coluna "HORARIO2"
+    nv_h2 = input("Digite o novo valor para HORARIO2")
 
-    # Atualiza a coluna "MATERIA1" de todos os registros da tabela "TERCA"
-    cursor.execute("UPDATE TERCA SET MATERIA1 = ? ", (nv_M1,))
-    cursor.execute("UPDATE TERCA SET MATERIA1 = ? ", (nv_H1,))
-    cursor.execute("UPDATE TERCA SET MATERIA1 = ? ", (nv_M2,))
-    cursor.execute("UPDATE TERCA SET MATERIA1 = ? ", (nv_H2,))
+    # Atualiza as colunas de todos os registros da tabela "TERCA"
+    cursor.execute("UPDATE TERCA SET MATERIA1 = ? ", (nv_m1,))
+    cursor.execute("UPDATE TERCA SET MATERIA1 = ? ", (nv_h1,))
+    cursor.execute("UPDATE TERCA SET MATERIA1 = ? ", (nv_m2,))
+    cursor.execute("UPDATE TERCA SET MATERIA1 = ? ", (nv_h2,))
 
     # Salva as alterações
-    conn.commit()
+    connter.commit()
 
     # Fecha a conexão com o banco de dados
-    conn.close()
+    connter.close()
 
 
 def updateQUA():
-    conn = sqlite3.connect('AGENDA.db')
-    cursor = conn.cursor()
+    connqua = sqlite3.connect('AGENDA.db')
+    cursor = connqua.cursor()
 
     # Solicita o novo valor para a coluna "MATERIA1"
-    nv_M1 = input("Digite o novo valor para MATERIA1: ")
-    nv_H1 = input("Digite o novo valor para HORARIO1")
-    nv_M2 = input("Digite o novo valor para MATERIA2: ")
-    nv_H2 = input("Digite o novo valor para HORARIO2")
+    nv_m1 = input("Digite o novo valor para MATERIA1: ")
+    # Solicita o novo valor para a coluna "HORARIO1"
+    nv_h1 = input("Digite o novo valor para HORARIO1")
+    # Solicita o novo valor para a coluna "MATERIA2"
+    nv_m2 = input("Digite o novo valor para MATERIA2: ")
+    # Solicita o novo valor para a coluna "HORARIO2"
+    nv_h2 = input("Digite o novo valor para HORARIO2")
 
-    # Atualiza a coluna "MATERIA1" de todos os registros da tabela "QUARTA"
-    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_M1,))
-    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_H1,))
-    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_M2,))
-    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_H2,))
+    # Atualiza as colunas de todos os registros da tabela "QUARTA"
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_m1,))
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_h1,))
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_m2,))
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_h2,))
 
     # Salva as alterações
-    conn.commit()
+    connqua.commit()
 
     # Fecha a conexão com o banco de dados
-    conn.close()
+    connqua.close()
 
 
 def updateQUI():
-    conn = sqlite3.connect('AGENDA.db')
-    cursor = conn.cursor()
+    connqui = sqlite3.connect('AGENDA.db')
+    cursor = connqui.cursor()
 
     # Solicita o novo valor para a coluna "MATERIA1"
-    nv_M1 = input("Digite o novo valor para MATERIA1: ")
-    nv_H1 = input("Digite o novo valor para HORARIO1")
-    nv_M2 = input("Digite o novo valor para MATERIA2: ")
-    nv_H2 = input("Digite o novo valor para HORARIO2")
+    nv_m1 = input("Digite o novo valor para MATERIA1: ")
+    # Solicita o novo valor para a coluna "HORARIO1"
+    nv_h1 = input("Digite o novo valor para HORARIO1")
+    # Solicita o novo valor para a coluna "MATERIA2"
+    nv_m2 = input("Digite o novo valor para MATERIA2: ")
+    # Solicita o novo valor para a coluna "HORARIO2"
+    nv_h2 = input("Digite o novo valor para HORARIO2")
 
-    # Atualiza a coluna "MATERIA1" de todos os registros da tabela "QUINTA"
-    cursor.execute("UPDATE QUINTA SET MATERIA1 = ? ", (nv_M1,))
-    cursor.execute("UPDATE QUINTA SET MATERIA1 = ? ", (nv_H1,))
-    cursor.execute("UPDATE QUINTA SET MATERIA1 = ? ", (nv_M2,))
-    cursor.execute("UPDATE QUINTA SET MATERIA1 = ? ", (nv_H2,))
+    # Atualiza as colunas de todos os registros da tabela "QUARTA"
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_m1,))
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_h1,))
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_m2,))
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_h2,))
 
     # Salva as alterações
-    conn.commit()
+    connqui.commit()
 
     # Fecha a conexão com o banco de dados
-    conn.close()
+    connqui.close()
 
 
 def updateSEX():
-    conn = sqlite3.connect('AGENDA.db')
-    cursor = conn.cursor()
+    connsex = sqlite3.connect('AGENDA.db')
+    cursor = connsex.cursor()
 
     # Solicita o novo valor para a coluna "MATERIA1"
-    nv_M1 = input("Digite o novo valor para MATERIA1: ")
-    nv_H1 = input("Digite o novo valor para HORARIO1")
-    nv_M2 = input("Digite o novo valor para MATERIA2: ")
-    nv_H2 = input("Digite o novo valor para HORARIO2")
+    nv_m1 = input("Digite o novo valor para MATERIA1: ")
+    # Solicita o novo valor para a coluna "HORARIO1"
+    nv_h1 = input("Digite o novo valor para HORARIO1")
+    # Solicita o novo valor para a coluna "MATERIA2"
+    nv_m2 = input("Digite o novo valor para MATERIA2: ")
+    # Solicita o novo valor para a coluna "HORARIO2"
+    nv_h2 = input("Digite o novo valor para HORARIO2")
 
-    # Atualiza a coluna "MATERIA1" de todos os registros da tabela "SEXTA"
-    cursor.execute("UPDATE SEXTA SET MATERIA1 = ? ", (nv_M1,))
-    cursor.execute("UPDATE SEXTA SET MATERIA1 = ? ", (nv_H1,))
-    cursor.execute("UPDATE SEXTA SET MATERIA1 = ? ", (nv_M2,))
-    cursor.execute("UPDATE SEXTA SET MATERIA1 = ? ", (nv_H2,))
+    # Atualiza as colunas de todos os registros da tabela "SEXTA"
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_m1,))
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_h1,))
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_m2,))
+    cursor.execute("UPDATE QUARTA SET MATERIA1 = ? ", (nv_h2,))
 
     # Salva as alterações
-    conn.commit()
+    connsex.commit()
 
     # Fecha a conexão com o banco de dados
-    conn.close()
+    connsex.close()
 
 
 def updateSAB():
-    conn = sqlite3.connect('AGENDA.db')
-    cursor = conn.cursor()
+    connsab = sqlite3.connect('AGENDA.db')
+    cursor = connsab.cursor()
 
     # Solicita o novo valor para a coluna "MATERIA1"
-    nv_M1 = input("Digite o novo valor para MATERIA1: ")
-    nv_H1 = input("Digite o novo valor para HORARIO1")
-    nv_M2 = input("Digite o novo valor para MATERIA2: ")
-    nv_H2 = input("Digite o novo valor para HORARIO2")
+    nv_m1 = input("Digite o novo valor para MATERIA1: ")
+    nv_h1 = input("Digite o novo valor para HORARIO1")
+    nv_m2 = input("Digite o novo valor para MATERIA2: ")
+    nv_h2 = input("Digite o novo valor para HORARIO2")
 
     # Atualiza a coluna "MATERIA1" de todos os registros da tabela "SABADO"
-    cursor.execute("UPDATE SABADO SET MATERIA1 = ? ", (nv_M1,))
-    cursor.execute("UPDATE SABADO SET MATERIA1 = ? ", (nv_H1,))
-    cursor.execute("UPDATE SABADO SET MATERIA1 = ? ", (nv_M2,))
-    cursor.execute("UPDATE SABADO SET MATERIA1 = ? ", (nv_H2,))
+    cursor.execute("UPDATE SABADO SET MATERIA1 = ? ", (nv_m1,))
+    cursor.execute("UPDATE SABADO SET MATERIA1 = ? ", (nv_h1,))
+    cursor.execute("UPDATE SABADO SET MATERIA1 = ? ", (nv_m2,))
+    cursor.execute("UPDATE SABADO SET MATERIA1 = ? ", (nv_h2,))
 
     # Salva as alterações
-    conn.commit()
+    connsab.commit()
 
     # Fecha a conexão com o banco de dados
-    conn.close()
+    connsab.close()
 
 
 # ------------------------------------------------------------------
 # PARTE DO CODIGO DE FUNÇÕES PARA DELETAR OS DADOS DAS TABELAS
 
 def deletSEG():
-    conn = sqlite3.connect('AGENDA.DB')
-    cursor = conn.cursor()
+    conndelseg = sqlite3.connect('AGENDA.DB')
+    cursor = conndelseg.cursor()
 
     # EXCLUI TODOS OS DADOS DA TABELA SEGUNDA
     cursor.execute("DELETE FROM SEGUNDA;")
 
     # SALVA AS ALTERAÇÕES
-    conn.commit()
+    conndelseg.commit()
 
     # FECHA A CONEXÃO COM O BANCO DEDADOS
-    conn.close()
+    conndelseg.close()
 
 
 def deletTER():
-    conn = sqlite3.connect('AGENDA.DB')
-    cursor = conn.cursor()
+    conndelter = sqlite3.connect('AGENDA.DB')
+    cursor = conndelter.cursor()
 
     cursor.execute("DELETE FROM TERCA;")
 
-    conn.commit()
+    conndelter.commit()
 
-    conn.close()
+    conndelter.close()
 
 
 def deletQUA():
-    conn = sqlite3.connect('AGENDA.DB')
-    cursor = conn.cursor()
+    conndelqua = sqlite3.connect('AGENDA.DB')
+    cursor = conndelqua.cursor()
 
     cursor.execute("DELETE FROM QUA;")
 
-    conn.commit()
+    conndelqua.commit()
 
-    conn.close()
+    conndelqua.close()
 
 
 def deletQUI():
-    conn = sqlite3.connect('AGENDA.DB')
-    cursor = conn.cursor()
+    conndelqui = sqlite3.connect('AGENDA.DB')
+    cursor = conndelqui.cursor()
 
     cursor.execute("DELETE FROM QUI;")
 
-    conn.commit()
+    conndelqui.commit()
 
-    conn.close()
+    conndelqui.close()
 
 
 def deletSEX():
-    conn = sqlite3.connect('AGENDA.DB')
-    cursor = conn.cursor()
+    conndelsex = sqlite3.connect('AGENDA.DB')
+    cursor = conndelsex.cursor()
 
     cursor.execute("DELETE FROM SEX;")
 
-    conn.commit()
+    conndelsex.commit()
 
-    conn.close()
+    conndelsex.close()
 
 
 def deletSAB():
-    conn = sqlite3.connect('AGENDA.DB')
+    conndelsab = sqlite3.connect('AGENDA.DB')
     cursor = conn.cursor()
 
     cursor.execute("DELETE FROM SAB;")
 
-    conn.commit()
+    conndelsab.commit()
 
-    conn.close()
+    conndelsab.close()
 
 
 # -------------------------------------------------------------------
 # ADICIONAR COLUNA ÀS COLUNAS
 
 def adicionarCol():
-    conn = sqlite3.connect('AGENDA.DB')
-    cursor = conn.cursor()
+    connadd = sqlite3.connect('AGENDA.DB')
+    cursor = connadd.cursor()
 
     tabela = input("DIGITE O NOME DA TABELA")
 
@@ -279,16 +304,16 @@ def adicionarCol():
 
     cursor.execute(sql_query)
 
-    conn.commit()
+    connadd.commit()
 
-    conn.close()
+    connadd.close()
 
 
 # -------------------------------------------------------------------
 # DELETAR ESPECIFICAMENTE UMA COLUNA
 def apagar_coluna():
-    conn = sqlite3.connect('AGENDA.DB')
-    cursor = conn.cursor()
+    connapgcol = sqlite3.connect('AGENDA.DB')
+    cursor = connapgcol.cursor()
 
     tabela = input("DIGITE O NOME DA TABELA:")
     coluna = input("DIGITE O NOME DA COLUNA A SER EXCLUÍDA:")
@@ -297,28 +322,29 @@ def apagar_coluna():
 
     cursor.execute(sql_query)
 
-    conn.commit()
+    connapgcol.commit()
 
-    conn.close()
+    connapgcol.close()
+
 
 # -------------------------------------------------------------------
 # ADICIONAR TABELAS NO BDD
 
 def add_tabble():
-    conn = sqlite3.connect('AGENDA.DB')
-    cursor = conn.cursor()
+    connaddtable = sqlite3.connect('AGENDA.DB')
+    cursor = connaddtable.cursor()
 
     # SOLICITA O NOVO NOME DA TABELA QUE IREMOS CRIAR
     nome_tabela = input("INFORME O NOME DA NOVA TABELA")
 
-    #CRIA UMA STRING DE CONSULTA SQL PARA CRIAR UMA NOVA TABELA, COM AS COLUNAS QUE JA EXISTEM NAS OUTRAS TABELAS
+    # CRIA UMA STRING DE CONSULTA SQL PARA CRIAR UMA NOVA TABELA, COM AS COLUNAS QUE JA EXISTEM NAS OUTRAS TABELAS
     sql_query = f"CREATE TABLE {nome_tabela} (" \
                 f"ID INTEGER PRIMARY KET AUTOINCREMENT MATERIA1 TEXT, HORARIO1 TEXT, MATERIA2 TEXT, HORARIO2 TEXT)"
     cursor.execute(sql_query)
 
-    conn.commit()
+    connaddtable.commit()
 
-    conn.close
+    connaddtable.close()
 
 
 # -------------------------------------------------------------------
@@ -335,7 +361,7 @@ print("\t3 - APAGAR DADOS DAS TABELAS COMPLETAMENTE")
 print("\t4-  ALTERAR TABELA- ADICIONAR COLUNAS")
 print("\t5 - APAGAR DADOS - REMOVER COLUNAS")
 print("\t6-  ADICIONAR TABELAS.")
-
+print("\t7-  APAGAR TABELAS COMPLETAMENTE")
 decisao = int(input("Oque deseja fazer?"))
 
 # VER AGENDA
@@ -455,5 +481,4 @@ elif decisao == 6:
 
 else:
     raise Exception("------------------ OPÇÃO INVALIDA -------------------------")
-
 
