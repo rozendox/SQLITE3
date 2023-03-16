@@ -474,7 +474,7 @@ elif decisao == 5:
     print("\t BEM VINDO, ESTA OPÇÃO IRÁ REMOVER COLUNAS DA SUA TABELA")
     apagar_coluna()
 
-#
+# ADICIONAR TABELAS
 elif decisao == 6:
     print("\t BEM VINDO, ESTA OPÇÃO IRÁ ADICIOONAR UMA TABELA NOVA AO SEU BDD")
     add_tabble()
