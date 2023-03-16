@@ -56,7 +56,116 @@ conn.execute(''' CREATE TABLE SABADO
             HORARIO2 INTEGER NOT NULL,
             MATERIA2 TEXT NOT NULL);''')
 
+# -----------------------------------------------------------------
 
+# VER AGENDA:
+def verSEG():
+    connverseg = sqlite3.connect('AGENDA.db')
+
+    # Criar um cursor
+    cur = connverseg.cursor()
+
+    # Executar o SELECT
+    cur.execute("SELECT * FROM SEGUNDA")
+
+    # Obter todos os resultados
+    resultados = cur.fetchall()
+
+    # Percorrer os resultados e imprimir cada linha
+    for linha in resultados:
+        print(linha)
+
+    # Fechar o cursor e a conexão
+    cur.close()
+    connverseg.close()
+
+def verTER():
+    connverter = sqlite3.connect('AGENDA.db')
+
+    # Criar um cursor
+    cur = connverter.cursor()
+
+    # Executar o SELECT
+    cur.execute("SELECT * FROM TERCA")
+
+    # Obter todos os resultados
+    resultados = cur.fetchall()
+
+    # Percorrer os resultados e imprimir cada linha
+    for linha in resultados:
+        print(linha)
+
+    # Fechar o cursor e a conexão
+    cur.close()
+    connverter.close()
+    
+def verQUA():
+    connverseg = sqlite3.connect('AGENDATESTE.db')
+
+    # Criar um cursor
+    cur = connverseg.cursor()
+
+    # Executar o SELECT
+    cur.execute("SELECT * FROM QUARTA")
+
+    # Obter todos os resultados
+    resultados = cur.fetchall()
+
+    # Percorrer os resultados e imprimir cada linha
+    for linha in resultados:
+        print(linha)
+
+    # Fechar o cursor e a conexão
+    cur.close()
+    connverseg.close()
+    
+def verQUI():
+    connverqui = sqlite3.connect('AGENDA.DB')
+    
+    # Criar um cursor
+    cur = connverqui.cursor()
+    
+    # Obter todos os Resultados
+    resultados = cur.fetchall()
+    
+    #Percorrer os resultados e imprimir cada linha
+    for linha in resultados:
+        print(linha)
+    
+    cur.close()
+    connverqui.close()
+
+def verSex():
+    connversex = sqlite3.connect('AGENDA.DB')
+    
+    # Criar um cursor
+    cur = connversex.cursor()
+    
+    # Obter todos os resultados
+    resultados = cur.fetchall()
+    
+    # Percorrer os resultados e imprimir cada linha
+    for linha in resultados:
+        print(linha)
+    
+    cur.close()
+    connversex.close()
+    
+def verSAB():
+    connversab = sqlite3.connect('AGENDA.DB')
+    
+    # Criar um cursor
+    cur = connversab.cursor()
+    
+    # Obter todos os resultados
+    resultados = cur.fetchall()
+    
+    # Percorrer os resultados e imprimir cada linha
+    for linha in resultados:
+        print(linha)
+        
+    cur.close()
+    connversab.close()
 # -----------------------------------------------------------------
 # PARTE DO CODIGO PARA DAR UPDATE NAS TABELAS DE TODAS AS INFORMAÇÕES
 
@@ -370,41 +479,23 @@ if decisao == 1:
     while entrada != "exit":
 
         if entrada == "segunda":
-            conn.execute("SELECT * FROM SEGUNDA ")
-            for segunda in segunda:
-                print(segunda)
-
+            verSEG()
         elif entrada == "terca":
-            conn.execute("SELECT * FROM TERCA_FEIRA")
-            for terca in terca:
-                print(terca)
-
+            verTER()
         elif entrada == "quarta":
-            conn.execute("SELECT * FROM QUARTA_FEIRA")
-            for quarta in quarta:
-                print(quarta)
-
+            verQUA()
         elif entrada == "quinta":
-            conn.execute("SELECT * FROM QUINTA_FEIRA")
-            for quinta in quinta:
-                print(quinta)
-
+            verQUI()    
         elif entrada == "sexta":
-            conn.execute("SELECT * FROM SEXTA-FEIRA")
-            for sexta in sexta:
-                print(sexta)
-
+            verSex()
         elif entrada == "sabado":
-            conn.execute("SELECT * FROM SABADO")
-            for sabado in sabado:
-                print(sabado)
-
-        if entrada == "exit":
+            verSAB()
+        elif entrada == "exit":
             print("OBRIGADO POR USAR O SISTEMA DE GERENCIAMENTO DE AGENDA.")
             conn.close()
 
-    else:
-        raise Exception("ENTRADA DE DADOS ERRADA, TERMINANDO SUA SESSÃO...")
+        else:
+            raise Exception("ENTRADA DE DADOS ERRADA, TERMINANDO SUA SESSÃO...")
 # MODIFICAR AGENDA- MODIFICAR POR INTEIRA
 elif decisao == 2:
     decisao2 = input("INFORME O DIA DA SEMANA PARA ALTERAR")
@@ -430,8 +521,8 @@ elif decisao == 2:
         elif decisao2 == 'exit':
             print("OBRIGADO POR USAR O SISTEMA DE GERENCIAMENTO DE AGENDA, FINALIZANDO...")
             break
-    else:
-        raise Exception("ENTRADA DE DADOS ERRADA, TERMINANDO A SESSÃO...")
+        else:
+            raise Exception("ENTRADA DE DADOS ERRADA, TERMINANDO A SESSÃO...")
 
 # APAGAR TODOS OS DADOS DA TABELA
 elif decisao == 3:
@@ -461,8 +552,8 @@ elif decisao == 3:
         elif decisao3 == "EXIT":
             print("OBRIGADO POR USAR O SISTEMA DE GERENCIAMENTO DE AGENDA")
             break
-    else:
-        raise Exception("*-DADOS INFORMADOS DE MANEIRA ERRADA-*")
+        else:
+            raise Exception("*-DADOS INFORMADOS DE MANEIRA ERRADA-*")
 
 # ADICIONAR ITENS NA TABELA
 elif decisao == 4:
@@ -474,7 +565,7 @@ elif decisao == 5:
     print("\t BEM VINDO, ESTA OPÇÃO IRÁ REMOVER COLUNAS DA SUA TABELA")
     apagar_coluna()
 
-# ADICIONAR TABELAS
+# ADICIONAR TABELA
 elif decisao == 6:
     print("\t BEM VINDO, ESTA OPÇÃO IRÁ ADICIOONAR UMA TABELA NOVA AO SEU BDD")
     add_tabble()
